@@ -22,15 +22,9 @@
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
                         <div class="nav-item dropdown">
                             @foreach ($categories as $category)
-                                <a href="#" class="nav-link" data-toggle="dropdown">{{ $category->title }}<i
-                                        class="fa fa-angle-down float-right mt-1"></i></a>
+                                <a href="{{ '' }}" class="nav-link">{{ $category->title }}</a>
                             @endforeach
 
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Men's Dresses</a>
-                                <a href="" class="dropdown-item">Women's Dresses</a>
-                                <a href="" class="dropdown-item">Baby's Dresses</a>
-                            </div>
                         </div>
 
                     </div>
@@ -59,10 +53,7 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Login</a>
-                            <a href="" class="nav-item nav-link">Register</a>
-                        </div>
+
                     </div>
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -139,16 +130,25 @@
         </div>
         <div class="row px-xl-5 pb-3">
             @foreach ($products as $product)
+                {{--  @dd($product->discounts()->latest()->first());  --}}
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="card product-item border-0 mb-4">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                    <div class="card product-item  mb-4">
+                        <div
+                            class="card-header py-2 product-img position-relative overflow-hidden bg-transparent border p-0">
                             <img class="img-fluid w-100" src="{{ asset($product->image) }}" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">{{ $product->product_name }}</h6>
+                            <h6 class="text-truncate mb-3 px-2">{{ $product->product_name }}</h6>
                             <div class="d-flex justify-content-center">
-                                <h6>{{ $product->sales_price }}</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                @if ($product->discounts()->latest()->first())
+                                    <h6>{{ $product->discounts()->latest()->first()->discount_price }}</h6>
+                                    <h6 class="text-muted ml-2">
+                                        <del>{{ $product->discounts()->latest()->first()->main_price }}</del></h6>
+                                @else
+                                    <h6>{{ $product->sales_price }}</h6>
+                                @endif
+
+
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
@@ -158,6 +158,14 @@
                             <a href="{{ route('addToCart', $product->id) }}" class="btn btn-sm text-dark p-0"><i
                                     class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                         </div>
+                        @if ($product->discounts()->latest()->first())
+                            <div class="product-discount">
+                                <span class="discount-text">
+                                    {{ $product->discounts()->latest()->first()->discount_percent }} % </span>
+
+                                <span class="discount-text"> Discount </span>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach

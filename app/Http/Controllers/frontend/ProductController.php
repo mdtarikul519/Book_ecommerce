@@ -17,16 +17,33 @@ class ProductController extends Controller
 
     public function add_to_cart($id)
     {
-        $cart_exists = Cart::where('product_id', $id)->first();
+        $cart_exists = Cart::where('user_id', auth()->id())->where('product_id', $id)->first();
         if ($cart_exists) {
             $cart_exists->qty = $cart_exists->qty + 1;
+            $cart_exists->update();
+            return redirect()->back()->with('message', 'Product quantity updated');
+        } else {
+            $cart = new Cart();
+            $cart->user_id = auth()->id();
+            $cart->product_id = $id;
+            $cart->qty = 1;
+            $cart->save();
+            return redirect()->back()->with('message', 'Product successfully added to the cart');
+        }
+    }
+    public function add_to_cart_with_qty()
+    {
+
+        $cart_exists = Cart::where('product_id', request()->input('product_id'))->first();
+        if ($cart_exists) {
+            $cart_exists->qty = request()->input('qty');
             $cart_exists->update();
             return redirect()->back()->with('message', 'Product quantity updatede');
         } else {
             $cart = new Cart();
             $cart->user_id = 1;
-            $cart->product_id = $id;
-            $cart->qty = 1;
+            $cart->product_id = request()->input('product_id');
+            $cart->qty = request()->input('qty');
             $cart->save();
             return redirect()->back()->with('message', 'Product successfully added to the cart');
         }
@@ -36,7 +53,12 @@ class ProductController extends Controller
     {
         $carts = Cart::with('product:id,product_name,sales_price')->get();
         $totalSum = $carts->map(function ($cart) {
-            return $cart->product->sales_price * $cart->qty;
+            if($cart->product->discounts()->latest()->first()){
+                return $cart->product->discounts()->latest()->first()->discount_price * $cart->qty;
+            }else{
+                return $cart->product->sales_price * $cart->qty;
+            }
+
         })->sum();
         return view('frontend.cart.addcart', compact('carts', 'totalSum'));
     }
@@ -64,4 +86,19 @@ class ProductController extends Controller
             return redirect()->back()->with('message', 'Cart successfully delete');
         }
     }
+
+    public function checkout(){
+
+        $carts = Cart::with('product:id,product_name,sales_price')->get();
+        $totalCost = $carts->map(function ($cart) {
+            if($cart->product->discounts()->latest()->first()){
+                return $cart->product->discounts()->latest()->first()->discount_price * $cart->qty;
+            }else{
+                return $cart->product->sales_price * $cart->qty;
+            }
+        })->sum();
+        return view('frontend.checkout.checkout',compact('totalCost','carts'));
+    }
+      
+    
 }

@@ -27,7 +27,8 @@
                                 <tr>
                                     <td class="align-middle"><img src="img/product-1.jpg" alt=""
                                             style="width: 50px;">{{ $cart->product->product_name }}</td>
-                                    <td class="align-middle">{{ $cart->product->sales_price }}Tk</td>
+
+                                    <td class="align-middle">{{$cart->product->discounts()->latest()->first()? $cart->product->discounts()->latest()->first()->discount_price : $cart->product->sales_price }}Tk</td>
                                     <td class="align-middle">
 
 
@@ -49,7 +50,7 @@
 
                                         </div>
                                     </td>
-                                    <td class="align-middle">{{ $cart->product->sales_price * $cart->qty }}</td>
+                                    <td class="align-middle">{{$cart->product->discounts()->latest()->first() ? $cart->product->discounts()->latest()->first()->discount_price * $cart->qty: $cart->product->sales_price * $cart->qty}}</td>
                                     <td class="align-middle">
                                         <a href="{{ route('cartDelete', $cart->id) }}"> <button type="button"
                                                 class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></a>
@@ -59,11 +60,14 @@
                         </tbody>
 
                     </table>
-                    <div class="float-right my-2">
-                        <button type="submit" class="btn btn-sm btn-info">
-                            Update
-                        </button>
-                    </div>
+                    @if ($carts && count($carts))
+                        <div class="float-right my-2">
+                            <button type="submit" class="btn btn-sm btn-info">
+                                Update
+                            </button>
+                        </div>
+                    @endif
+
                 </form>
             </div>
             <div class="col-lg-4">
@@ -86,15 +90,16 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">10 Tk</h6>
+                            <h6 class="font-weight-medium">50 Tk</h6>
                         </div>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{ $totalSum ?? 0 + 10 }} Tk</h5>
+                            <h5 class="font-weight-bold">{{ $totalSum + 50 }} Tk</h5>
                         </div>
-                        <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+                        <a href="{{ route('checkout') }}"> 
+                            <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button></a>
                     </div>
                 </div>
             </div>

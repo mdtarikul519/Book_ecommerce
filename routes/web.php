@@ -26,14 +26,24 @@ use App\Http\Controllers\UserRoleController;
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\frontend\FrontendController::class, 'index'])->name('home');
-Route::get('/product-details/{id}', [App\Http\Controllers\frontend\ProductController::class, 'product_details'])->name('product_details');
-Route::get('/add-to-cart/{id}', [App\Http\Controllers\frontend\ProductController::class, 'add_to_cart'])->name('addToCart');
-Route::get('/cart', [App\Http\Controllers\frontend\ProductController::class, 'cart'])->name('cart');
-Route::post('/cart-update', [App\Http\Controllers\frontend\ProductController::class, 'quantityUpdate'])->name('prductQuantityUpdate');
-Route::get('/cart-delete/{id}', [App\Http\Controllers\frontend\ProductController::class, 'cartDelete'])->name('cartDelete');
+
+
+Route::get('product-details/{id}', [App\Http\Controllers\frontend\ProductController::class, 'product_details'])->name('product_details');
+Route::get('add-to-cart/{id}', [App\Http\Controllers\frontend\ProductController::class, 'add_to_cart'])->name('addToCart')->middleware('auth');
+Route::post('add-to-cart-with-qty', [App\Http\Controllers\frontend\ProductController::class, 'add_to_cart_with_qty'])->name('addToCartWithQty');
+Route::get('cart', [App\Http\Controllers\frontend\ProductController::class, 'cart'])->name('cart')->middleware('auth');
+Route::post('cart-update', [App\Http\Controllers\frontend\ProductController::class, 'quantityUpdate'])->name('prductQuantityUpdate');
+Route::get('cart-delete/{id}', [App\Http\Controllers\frontend\ProductController::class, 'cartDelete'])->name('cartDelete');
+Route::get('checkout', [App\Http\Controllers\frontend\ProductController::class, 'checkout'])->name('checkout')->middleware('auth');
+
+
+Route::post('order', [App\Http\Controllers\order\OrderController::class, 'Confirm_order'])->name('order');
 
 
 
+
+
+Route::get('profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('isAdmin');

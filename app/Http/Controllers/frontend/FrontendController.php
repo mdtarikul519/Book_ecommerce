@@ -14,7 +14,8 @@ class FrontendController extends Controller
    public function index()
    {
       $banners = EcomBanner::get();
-      $products = Product::get();
+      $products = Product::with('discounts')->get();
+      // dd($products);
       $categories = ProductCategory::get();
       $product_order  = OrderProduct::get();
       return view('frontend.index', compact('banners', 'products','categories','product_order'));
