@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\banner\BannerController;
+use App\Http\Controllers\order\OrderController;
 use App\Http\Controllers\product\ProductCategoryController;
 use App\Http\Controllers\product\ProductController;
 use App\Http\Controllers\product\ProductTagController;
@@ -119,4 +120,14 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
     Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
     Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
+})->middleware('isAdmin');
+
+
+
+Route::group(['prefix' => 'order'], function () {
+    Route::get('/view', [OrderController::class, 'view'])->name('dashboard.order.view');
+    Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('dashboard.order.edit');
+    Route::post('/update/{id}', [OrderController::class, 'update'])->name('dashboard.order.update');
+    Route::get('/destory/{id}', [OrderController::class, 'destory'])->name('dashboard.order.destory');
+    Route::get('/details/{id}', [OrderController::class, 'details'])->name('dashboard.order.details');
 })->middleware('isAdmin');

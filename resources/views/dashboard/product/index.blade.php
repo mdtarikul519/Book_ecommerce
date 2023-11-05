@@ -5,7 +5,7 @@
             <div class="card rounded-none">
                 <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="bn" style="font-size: 22px !important;">All Product category</h4>
+                        <h4 class="bn" style="font-size: 22px !important;">All Product</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
@@ -13,8 +13,7 @@
                                     <input v-else type="checkbox" @change="toggle">
                                     <span class="switch-state" style="background-color: #4c6887;"></span>
                                 </label> -->
-                        <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All
-                                Category </a><a href="{{ route('dashboard.product_category.create') }}"
+                        <div class="ps-3 d-flex gap-2"><a href="{{ route('dashboard.product.create') }}"
                                 class="btn btn-sm btn-info"> Create </a></div>
                     </div>
                 </div>

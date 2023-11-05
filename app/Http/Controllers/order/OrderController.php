@@ -12,10 +12,16 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function view()
+    {
+        $orders = Order::get();
+        return view('dashboard.order.index', compact('orders'));
+    }
+
     public function Confirm_order(Request $request)
 
     {
-
+        //$product_discount
         //dd(json_decode($request->shipping_method));
         $data = new Order();
         $data->user_id = Auth::user()->id;
@@ -26,30 +32,35 @@ class OrderController extends Controller
         $data->date = Carbon::now()->toDateString();
         $data->delivery_method = json_decode($request->shipping_method)->method_name;
         $data->delivery_cost = json_decode($request->shipping_method)->cost;
-        $data->save();
+        //$data->discount_percent = $cart->product->discounts()->latest()->first();
+        $data->discount_price =
+            //dd($data);  
+            $data->save();
 
         $carts = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        // dd($carts);
+        //dd($carts);
         foreach ($carts as $cart) {
+            // dd($carts);
             $orderProducts = new OrderProduct();
             $orderProducts->product_id = $cart->product_id;
             $orderProducts->order_id = $data->id;
             if ($cart->product->discounts()->latest()->first()) {
                 $orderProducts->product_price = $cart->product->discounts()->latest()->first()->main_price;
             } else {
-                $orderProducts->product_price = $cart->product->product_price;
+                //dd($cart);
+                $orderProducts->product_price = $cart->product->sales_price;
             }
 
             if ($cart->product->discounts()->latest()->first()) {
                 $orderProducts->discount_percent  = $cart->product->discounts()->latest()->first()->discount_percent;
             } else {
-                $orderProducts->discount_percent = $cart->discount_percent;
+                $orderProducts->discount_percent = 0;
             }
 
             if ($cart->product->discounts()->latest()->first()) {
                 $orderProducts->discount_price  = $cart->product->discounts()->latest()->first()->discount_price;
             } else {
-                $orderProducts->discount_price = $cart->discount_price;
+                $orderProducts->discount_price = $cart->product->sales_price;
             }
 
             $orderProducts->qty = $cart->qty;
