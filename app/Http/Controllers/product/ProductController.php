@@ -20,6 +20,24 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
+    
+
+      $this->validate($request,[
+            'product_name' => 'required',
+            'selected_categories' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'sales_price' => 'required',
+            'stock' => 'required',
+            'low_stock' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required',
+           ]);
+
+          
+
         $data = new Product();
 
         $data->product_name = $request->product_name;
@@ -118,5 +136,11 @@ class ProductController extends Controller
             return redirect()->back();
         }
         return redirect()->back();
+    }
+
+
+    public function discount(){
+          return view('dashboard.product.discount');
+
     }
 }

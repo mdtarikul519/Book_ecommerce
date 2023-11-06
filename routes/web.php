@@ -120,6 +120,7 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
     Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
     Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
+    Route::get('/discount/{id}', [ProductController::class, 'discount'])->name('dashboard.product.discount');
 })->middleware('isAdmin');
 
 

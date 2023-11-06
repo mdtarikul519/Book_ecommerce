@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
     public function view()
     {
-        $orders = Order::get();
+        $orders = Order::with('user')->get();
         return view('dashboard.order.index', compact('orders'));
     }
 

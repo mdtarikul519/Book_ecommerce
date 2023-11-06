@@ -22,27 +22,26 @@
                             <thead>
                                 <tr>
                                     <th style="width: 50px;">Id</th>
-                                    <th style="width: 50px;">user_id</th>
-                                    <th style="width: 50px;">order_status</th>
-                                    <th style="width: 50px;">total_price </th>
-                                    <th style="width: 50px;">sub_total</th>
-                                    <th style="width: 50px;">invoice_id </th>
-                                    <th style="width: 50px;">date</th>
-                                    <th style="width: 50px;">discount_percent</th>
-                                    <th style="width: 50px;">discount_price</th>
-                                    <th style="width: 50px;">payment_status</th>
-                                    <th style="width: 50px;">delivery_method</th>
-                                    <th style="width: 50px;">delivery_cost</th>
+                                    <th style="width: 50px;">user id</th>
+                                    <th style="width: 50px;">Order status</th>
+                                    <th style="width: 50px;">Total price </th>
+                                    <th style="width: 50px;">Sub total</th>
+                                    <th style="width: 50px;">Invoice id </th>
+                                    <th style="width: 50px;">Date</th>
+                                    <th style="width: 50px;">Discount percent</th>
+                                    <th style="width: 50px;">Discount price</th>
+                                    <th style="width: 50px;">Payment status</th>
+                                    <th style="width: 50px;">Delivery method</th>
+                                    <th style="width: 50px;">Delivery cost</th>
                                     <th style="width: 50px;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 @foreach ($orders as $order)
+       {{-- @dd($order) --}}
                                     <td>{{ $order->id }}</td>
-                                    <td>{{ $order->order->user_name }}
-                     
-                                    </td>
+                                    <td>{{ $order->user->id }}</td>
 
                                     <td>{{ $order->order_status }}</td>
                                     <td>{{ $order->total_price }}</td>

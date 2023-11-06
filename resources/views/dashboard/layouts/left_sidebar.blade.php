@@ -7,19 +7,6 @@
     <ul class="sidebar-menu">
      
 
-        <!-- <li class="active">
-   
-            <a href="javascript:void(0)" class="sidebar-header">
-                <i class="icon-desktop"></i><span>UserRole</span>
-                <i class="fa fa-angle-right pull-right"></i>
-            </a>
-            <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.role.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.role.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
-            </ul>
-        </li> -->
-
-
         <li class="active">
      
             <a href="javascript:void(0)" class="sidebar-header">
@@ -28,39 +15,11 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.user.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.user.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
-                <li><a href="{{ route('dashboard.role.view') }}" class="active"><i class="fa fa-angle-right"></i>User Roll</a></li>
+                <li><a href="{{ route('dashboard.user.view') }}"><i class="fa fa-angle-right"></i>All</a></li>
+                <li><a href="{{ route('dashboard.role.view') }}"><i class="fa fa-angle-right"></i>User Roll</a></li>
 
             </ul>
         </li>
-
-
-        <!-- <li class="active">
-      
-            <a href="javascript:void(0)" class="sidebar-header">
-                <i class="icon-desktop"></i><span>Product_category</span>
-                <i class="fa fa-angle-right pull-right"></i>
-            </a>
-            <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.product_category.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product_category.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
-            </ul>
-        </li> -->
-
-
-        <!-- <li class="active">
-   
-            <a href="javascript:void(0)" class="sidebar-header">
-                <i class="icon-desktop"></i><span>Product_tag</span>
-                <i class="fa fa-angle-right pull-right"></i>
-            </a>
-            <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.product_tag.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product_tag.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
-            </ul>
-        </li>
- -->
-
 
         <li class="active">
             <a href="javascript:void(0)" class="sidebar-header">
@@ -68,7 +27,7 @@
                 <i class="fa fa-angle-right pull-right"></i>
             </a>
             <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.banner.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
+                <li><a href="{{ route('dashboard.banner.view') }}"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -79,10 +38,9 @@
                 <i class="fa fa-angle-right pull-right"></i>
             </a>
             <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.product.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
-                <li><a href="{{ route('dashboard.product_category.view') }}" class="active"><i class="fa fa-angle-right"></i>Product Category</a></li>
-                <li><a href="{{ route('dashboard.product_tag.view') }}" class="active"><i class="fa fa-angle-right"></i>Product Tag</a></li>
+                <li><a href="{{ route('dashboard.product.view') }}"><i class="fa fa-angle-right"></i>Product All</a></li>
+                <li><a href="{{ route('dashboard.product_category.view') }}"><i class="fa fa-angle-right"></i>Product Category</a></li>
+                <li><a href="{{ route('dashboard.product_tag.view') }}"><i class="fa fa-angle-right"></i>Product Tag</a></li>
             </ul>
         </li>
 
@@ -93,7 +51,7 @@
                 <i class="fa fa-angle-right pull-right"></i>
             </a>
             <ul class="sidebar-submenu">
-                <li><a href="{{ route('dashboard.order.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
+                <li><a href="{{ route('dashboard.order.view') }}"><i class="fa fa-angle-right"></i>All Order</a></li>
             </ul>
         </li>
     </ul>

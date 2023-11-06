@@ -12,7 +12,7 @@
                         <input v-else type="checkbox" @change="toggle">
                         <span class="switch-state" style="background-color: #4c6887;"></span>
                     </label> -->
-                    <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All Category </a><a href="{{ route('dashboard.user.create') }}" class="btn btn-sm btn-info"> Create </a></div>
+                    <div class="ps-3 d-flex gap-2"><a href="{{ route('dashboard.user.create') }}" class="btn btn-sm btn-info"> Create </a></div>
                 </div>
             </div>
             <div class="card-body px-4 py-2 form_area custom_scroll">
@@ -21,14 +21,14 @@
                         <thead>
                             <tr>
                                 <th  style="width: 50px;">SL</th>
-                                <th  style="width: 50px;">first_name</th>
-                                <th  style="width: 50px;">last_name</th>
-                                <th  style="width: 50px;">user_name</th>
-                                <th  style="width: 50px;">telegram_id</th>
-                                <th  style="width: 50px;">telegram_name</th>
-                                <th  style="width: 50px;">mobile_number</th>
-                                <th  style="width: 50px;">photo</th>
-                                <th  style="width: 200px;">email</th>
+                                <th  style="width: 50px;">First name</th>
+                                <th  style="width: 50px;">Last name</th>
+                                <th  style="width: 50px;">User name</th>
+                                <th  style="width: 50px;">Telegram id</th>
+                                <th  style="width: 50px;">Telegram name</th>
+                                <th  style="width: 50px;">Mobile number</th>
+                                <th  style="width: 50px;">Photo</th>
+                                <th  style="width: 200px;">Email</th>
                                 <th  style="width: 80px;">Action</th>
                             </tr>
                         </thead>

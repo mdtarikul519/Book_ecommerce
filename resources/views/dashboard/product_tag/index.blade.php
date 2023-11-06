@@ -5,7 +5,7 @@
             <div class="card rounded-none">
                 <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="bn" style="font-size: 22px !important;">All Tag</h4>
+                        <h4 class="bn" style="font-size: 22px !important;">All Product Tag</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
@@ -26,9 +26,9 @@
                                     <th style="width: 50px;">parent</th>
                                     <th style="width: 50px;">url</th>
                                     <th style="width: 50px;">image</th>
-                                    <th style="width: 50px;">meta_title</th>
-                                    <th style="width: 50px;">meta_information</th>
-                                    <th style="width: 50px;">meta_keywords</th>
+                                    <th style="width: 50px;">meta title</th>
+                                    <th style="width: 50px;">meta information</th>
+                                    <th style="width: 50px;">meta keywords</th>
                                     <th style="width: 50px;">Action</th>
 
                                 </tr>
@@ -50,11 +50,11 @@
                                         <td class="text-end">
                                             <div class="d-flex justify-content-end gap-3">
                                                 <a href="{{ route('dashboard.product_tag.edit', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-info"> Edit </a>
+                                                    class="btn btn-sm btn-outline-info">Edit</a>
                                                 <a href="{{ route('dashboard.product_tag.details', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-warning"> Details </a>
+                                                    class="btn btn-sm btn-outline-warning">Details</a>
                                                 <a href="{{ route('dashboard.product_tag.destory', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-danger"> delete </a>
+                                                    class="btn btn-sm btn-outline-danger">delete</a>
                                             </div>
                                         </td>
                                     </tr>

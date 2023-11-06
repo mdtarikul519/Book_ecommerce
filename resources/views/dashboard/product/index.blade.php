@@ -9,10 +9,10 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
-                                    <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
-                                    <input v-else type="checkbox" @change="toggle">
-                                    <span class="switch-state" style="background-color: #4c6887;"></span>
-                                </label> -->
+                                        <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
+                                        <input v-else type="checkbox" @change="toggle">
+                                        <span class="switch-state" style="background-color: #4c6887;"></span>
+                                    </label> -->
                         <div class="ps-3 d-flex gap-2"><a href="{{ route('dashboard.product.create') }}"
                                 class="btn btn-sm btn-info"> Create </a></div>
                     </div>
@@ -48,7 +48,7 @@
                                             @if ($item->stocks_sum_qty - $item->orders_sum_qty > 0)
                                                 in_stock
                                             @else
-                                            not in stock
+                                                not in stock
                                             @endif
                                         </td>
                                         <td>{{ $item->sales_price }}</td>
@@ -79,6 +79,8 @@
                                                     class="btn btn-sm btn-outline-info"> Edit </a>
                                                 <a href="{{ route('dashboard.product.details', $item->id) }}"
                                                     class="btn btn-sm btn-outline-warning"> Details </a>
+                                                <a href="{{ route('dashboard.product.discount', $item->id) }}"
+                                                    class="btn btn-sm btn-outline-secondary"> Set Discount</a>
                                                 <a href="{{ route('dashboard.product.destory', $item->id) }}"
                                                     class="btn btn-sm btn-outline-danger">delete </a>
                                             </div>
