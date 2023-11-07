@@ -68,4 +68,11 @@ class OrderController extends Controller
         };
         return redirect()->back()->with('message', 'data successfully added');
     }
+
+
+    public function details($id){
+        
+        $details = Order::find($id);
+        return view('dashboard.order.details', compact('details'));
+    }
 }

@@ -41,7 +41,7 @@
                                 @foreach ($orders as $order)
        {{-- @dd($order) --}}
                                     <td>{{ $order->id }}</td>
-                                    <td>{{ $order->user->id }}</td>
+                                    <td>{{ $order->user->user_name }}</td>
 
                                     <td>{{ $order->order_status }}</td>
                                     <td>{{ $order->total_price }}</td>
