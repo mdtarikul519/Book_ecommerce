@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 6,
                 "image" => "assets/frontend/products/key_ring/kk/updatKeyRing/01.jpg",
                 "cost" => 200,
-                "sales_price" => 300,
+                "sales_price" => 500,
                 "stock" => 12,
                 "low_stock" => 4,
 
@@ -56,7 +56,7 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 2,
                 "image" => "assets/frontend/products/pen/01.png",
                 "cost" => 200,
-                "sales_price" => 300,
+                "sales_price" => 350,
                 "stock" => 12,
                 "low_stock" => 4,
 
@@ -67,7 +67,7 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 2,
                 "image" => "assets/frontend/products/pen_holder/01.png",
                 "cost" => 400,
-                "sales_price" => 700,
+                "sales_price" => 400,
                 "stock" => 25,
                 "low_stock" => 6,
 
@@ -78,7 +78,7 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 4,
                 "image" => "assets/frontend/products/newspaper/01.png",
                 "cost" => 200,
-                "sales_price" => 500,
+                "sales_price" => 300,
                 "stock" => 12,
                 "low_stock" => 4,
 
@@ -89,7 +89,7 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 2,
                 "image" => "assets/frontend/products/kisorkantho_pen/01.png",
                 "cost" => 100,
-                "sales_price" => 200,
+                "sales_price" => 550,
                 "stock" => 10,
                 "low_stock" => 2,
 
@@ -100,43 +100,44 @@ class ProductSeeder extends Seeder
                 "selected_categories" => 3,
                 "image" => "assets/frontend/products/watch/03.png",
                 "cost" => 200,
-                "sales_price" => 400,
+                "sales_price" => 600,
                 "stock" => 12,
                 "low_stock" => 3,
 
             ],
-            [
-                "product_name" => "কিশোরকন্ঠ নোটবুক",
-                "selected_categories" => 4,
-                "image" => "assets/frontend/products/notebook/3.png",
-                "cost" => 600,
-                "sales_price" => 800,
-                "stock" => 22,
-                "low_stock" => 14,
+            
+            // [
+            //     "product_name" => "কিশোরকন্ঠ নোটবুক",
+            //     "selected_categories" => 4,
+            //     "image" => "assets/frontend/products/notebook/3.png",
+            //     "cost" => 600,
+            //     "sales_price" => 800,
+            //     "stock" => 22,
+            //     "low_stock" => 14,
 
-            ],
+            // ],
 
-            [
-                "product_name" => "ক্যালেন্ডার",
-                "selected_categories" => 7,
-                "image" => "assets/frontend/products/watch/03.png",
-                "cost" => 400,
-                "sales_price" => 700,
-                "stock" => 12,
-                "low_stock" => 4,
+            // [
+            //     "product_name" => "ক্যালেন্ডার",
+            //     "selected_categories" => 7,
+            //     "image" => "assets/frontend/products/watch/03.png",
+            //     "cost" => 400,
+            //     "sales_price" => 700,
+            //     "stock" => 12,
+            //     "low_stock" => 4,
 
-            ],
+            // ],
 
-            [
-                "product_name" => "মগ কি ক",
-                "selected_categories" => 1,
-                "image" => "assets/frontend/products/mug/01.png",
-                "cost" => 200,
-                "sales_price" => 300,
-                "stock" => 18,
-                "low_stock" => 6,
+            // [
+            //     "product_name" => "মগ কি ক",
+            //     "selected_categories" => 1,
+            //     "image" => "assets/frontend/products/mug/01.png",
+            //     "cost" => 200,
+            //     "sales_price" => 300,
+            //     "stock" => 18,
+            //     "low_stock" => 6,
 
-            ],
+            // ],
         ];
 
 

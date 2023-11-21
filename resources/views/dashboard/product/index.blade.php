@@ -27,7 +27,7 @@
                                     <th style="width: 50px;">Product Name</th>
                                     <th style="width: 50px;">Avaiability </th>
                                     <th style="width: 50px;">price</th>
-                                    <th style="width: 50px;">Discount %</th>
+                                    <th style="width: 50px;">discount %</th>
                                     <th style="width: 50px;">discount Price</th>
                                     <th style="width: 50px;">Current price</th>
                                     <th style="width: 50px;">Total Stock</th>
@@ -38,6 +38,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($all_data as $item)
+                        {{-- @dd($item); --}}
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>
@@ -51,20 +52,19 @@
                                                 not in stock
                                             @endif
                                         </td>
-                                        <td>{{ $item->sales_price }}</td>
+                                         <td>{{ $item->sales_price }}</td> 
+                                        
+                                         <td>
+                                            {{ $item->product_offers->discount_percent ?? 'No Discount' }}
+                                        </td>
                                         <td>
-                                            @isset($item->discount)
-                                                {{ $item->discount->discount_percent }}
+                                            @isset($item->product_offers)
+                                                {{ $item->product_offers->discount_price }}
                                             @endisset
                                         </td>
                                         <td>
-                                            @isset($item->discount)
-                                                {{ $item->discount->discount_price }}
-                                            @endisset
-                                        </td>
-                                        <td>
-                                            @isset($item->discount)
-                                                {{ $item->price - $item->discount->discount_price }}
+                                            @isset($item->product_offers)
+                                                {{ $item->sales_price - $item->product_offers->discount_price }}
                                             @endisset
                                         </td>
                                         <td>{{ $item->stocks_sum_qty }}</td>
@@ -80,7 +80,7 @@
                                                 <a href="{{ route('dashboard.product.details', $item->id) }}"
                                                     class="btn btn-sm btn-outline-warning"> Details </a>
                                                 <a href="{{ route('dashboard.product.discount', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-secondary"> Set Discount</a>
+                                                    class="btn btn-sm btn-outline-secondary"> Set discount</a>
                                                 <a href="{{ route('dashboard.product.destory', $item->id) }}"
                                                     class="btn btn-sm btn-outline-danger">delete </a>
                                             </div>
@@ -95,7 +95,7 @@
                 <div class="card-footer py-2">
                     <nav aria-label="Page navigation example" class="">
 
-                        {{ $all_data->links() }}
+                        {{-- {{ $all_data->links() }} --}}
 
                         {{-- <ul class="pagination pagination-warning">
                         <li class="page-item">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\product;
 use App\Http\Controllers\Controller;
 use App\Models\products\Product;
 use App\Models\products\ProductCategory;
+use App\Models\products\ProductOffer;
 use App\Models\products\ProductStock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,9 +22,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-    
 
-      $this->validate($request,[
+
+        //  ($request->all());
+        //   $number =     
+        //    switch()
+
+        $this->validate($request, [
             'product_name' => 'required',
             'selected_categories' => 'required',
             'description' => 'required',
@@ -34,9 +39,9 @@ class ProductController extends Controller
             'meta_title' => 'required',
             'meta_keywords' => 'required',
             'meta_description' => 'required',
-           ]);
+        ]);
 
-          
+
 
         $data = new Product();
 
@@ -69,11 +74,9 @@ class ProductController extends Controller
 
     public function view()
     {
-        $all_data = Product::withSum('stocks', 'qty')
+        $all_data = Product::with('product_offers')
+            ->withSum('stocks', 'qty')
             ->withSum('orders', 'qty')
-            ->with([
-                'discount'
-            ])
             ->paginate(10);
         return view('dashboard.product.index', compact('all_data'));
     }
@@ -139,8 +142,9 @@ class ProductController extends Controller
     }
 
 
-    public function discount(){
-          return view('dashboard.product.discount');
-
+    public function discount($id)
+    {
+        $product_price = ProductOffer::find($id);
+        return view('dashboard.product.discount', compact('product_price'));
     }
 }

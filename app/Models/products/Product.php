@@ -19,7 +19,12 @@ class Product extends Model
     public function discounts(){
         return $this->hasMany(ProductOffer::class,'product_id');
     }
-    public function discount(){
+    public function product_offers(){
         return $this->hasOne(ProductOffer::class,'product_id')->orderBy('id','DESC')->where('status','active');
+    }
+
+    public function orders_products(){
+
+        return $this->hasMany(OrderProduct::class);
     }
 }

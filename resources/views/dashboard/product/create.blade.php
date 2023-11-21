@@ -9,7 +9,14 @@
         border-color: #757575 !important;
     }
 </style>
+
+@php
+    
+@endphp
 @section('content')
+
+
+
     <div layout_title="Product Management">
         <h3 class="mb-2">Product Management</h3>
         <div class="container">
@@ -30,6 +37,10 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-12">
                                 <div class="admin_form form_1 d-grid">
+
+                                    <div>
+                                     <input type="text" name="exam">
+                                    </div>
                                     <div class="form-group full_width d-grid align-content-start gap-1 mb-2">
                                         <div class="field_wrapper">
                                             <label class="text-capitalize d-block">
@@ -325,11 +336,12 @@
                                             <div class="admin_form form_1 col_2 mt-3">
                                                 <div class="form-group d-grid align-content-start gap-1 mb-2">
                                                     <div class="field_wrapper">
-                                                        <label  class="text-capitalize d-block">
+                                                        <label class="text-capitalize d-block">
                                                             <span class="mb-2 d-block">
                                                                 meta title
                                                             </span>
-                                                        <input type="text" name="meta_title" class="form-control" />
+                                                            <input type="text" name="meta_title"
+                                                                class="form-control" />
                                                             <!---->
                                                         </label>
                                                         <!---->

@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 50px;">Id</th>
-                                    <th style="width: 50px;">user id</th>
+                                    <th style="width: 50px;">user Name</th>
                                     <th style="width: 50px;">Order status</th>
                                     <th style="width: 50px;">Total price </th>
                                     <th style="width: 50px;">Sub total</th>
@@ -41,7 +41,12 @@
                                 @foreach ($orders as $order)
        {{-- @dd($order) --}}
                                     <td>{{ $order->id }}</td>
-                                    <td>{{ $order->user->user_name }}</td>
+                                    <td>
+                                        @if($order->user)
+                                        {{$order->user->user_name }}
+                                        @endif
+                                     
+                                    </td>
 
                                     <td>{{ $order->order_status }}</td>
                                     <td>{{ $order->total_price }}</td>

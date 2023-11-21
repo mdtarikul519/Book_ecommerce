@@ -72,7 +72,20 @@ class OrderController extends Controller
 
     public function details($id){
         
-        $details = Order::find($id);
+        $details = Order::with('order_products.product:id,product_name')->where('id', $id)->first();
+//dd($details);
         return view('dashboard.order.details', compact('details'));
+    }
+
+
+    public function order_details(Request $request, $id){
+        $order_detail = Order::find($id);
+        //dd($order_detail);
+        if($order_detail->order_status){
+            $order_detail->order_status = $request->order_status;
+        } 
+        $order_detail->save();
+
+        return redirect()->back()->with('message', 'Status successfully updated');
     }
 }

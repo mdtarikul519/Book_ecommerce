@@ -126,9 +126,16 @@ Route::group(['prefix' => 'product'], function () {
 
 
 Route::group(['prefix' => 'order'], function () {
-    Route::get('/view', [OrderController::class, 'view'])->name('dashboard.order.view');
+    Route::post('/view', [OrderController::class, 'view'])->name('dashboard.order.view');
     Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('dashboard.order.edit');
     Route::post('/update/{id}', [OrderController::class, 'update'])->name('dashboard.order.update');
     Route::get('/destory/{id}', [OrderController::class, 'destory'])->name('dashboard.order.destory');
     Route::get('/details/{id}', [OrderController::class, 'details'])->name('dashboard.order.details');
+    Route::post('/order-details/{id}', [OrderController::class, 'order_details'])->name('dashboard.order.order_details');
+
 })->middleware('isAdmin');
+
+
+//   Route::get('test',function(){
+//     dd(app());
+//   });

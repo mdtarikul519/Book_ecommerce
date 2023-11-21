@@ -1,4 +1,4 @@
-<div class="page-sidebar custom-scrollbar page-sidebar-open">
+<div class="page-sidebar custom-scrollbar page-sidebar-open print-d-none">
     <!--Page Sidebar Start-->
     <div class="sidebar-user text-center">
         <div><img class="img-50 rounded-circle" src="/assets/backend/1.jpg" alt="#" /></div>

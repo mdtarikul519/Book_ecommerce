@@ -1,4 +1,4 @@
-<div class="page-main-header">
+<div class="page-main-header print-d-none">
     <!--Page Header Start-->
     <div class="main-header-left" semilight-bg-color="bg-default-light-colo">
         <div class="logo-wrapper">
